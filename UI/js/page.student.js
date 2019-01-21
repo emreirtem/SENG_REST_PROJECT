@@ -42,8 +42,8 @@ $( "#choose_advisor" ).click(function() {
 
 
 var getAllAdvisorsCallback = function(r){
-	alert(JSON.stringify(r))
-	for (i in r) {
+	$("#advisor_list_group").html('<h1>Advisors List</h1>')
+	for (i in r) {		
 		$( "#advisor_list_group").append( '<button type="button" class="list-group-item list-group-item-action">'+r[i]["advisor_id"]+' - '+r[i]["advisor_name"]+'</button>' );
 	
 	}	
