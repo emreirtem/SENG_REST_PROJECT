@@ -19,7 +19,7 @@
 				<input class="form-control" id="student_name" placeholder="">
 			  </div>
 			  <div class="form-group">
-				<button type="button" class="btn btn-success">Submit</button>
+				<button type="button" class="btn btn-success" id="submit_student">Submit</button>
 			  </div>
 			</form>
 		</div>
@@ -44,7 +44,7 @@
 				<input class="form-control" id="availability" placeholder="">
 			  </div>
 			  <div class="form-group">
-				<button type="button" class="btn btn-success">Submit</button>
+				<button type="button" class="btn btn-success" id="submit_advisor">Submit</button>
 			  </div>
 			</form>
 		</div>
@@ -52,7 +52,10 @@
 
 	<div class="row" id="admin_form">
 		<div class="col-sm">
-			  
+			  <div class="list-group" id="student_list">
+				<h1>Student List</h1>
+				<button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+			</div>
 		<div>
 		<div class="col-sm">
 			
@@ -60,8 +63,9 @@
 	</div>
 
 </div>
-<script src="js/bootstrap.min.js"></script>
 <script src="js/jquery-3.3.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
 <script src="js/remote.api.wapper.js"></script>
+<script src="js/page.admin.js"></script>
 </body>
 </html>
