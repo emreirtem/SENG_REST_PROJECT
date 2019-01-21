@@ -1,0 +1,4 @@
+advisor_id,student_id,status
+2,4,ACCEPT_WAITING
+1,5,ACCEPT_WAITING
+1,1,ACCEPT_WAITING

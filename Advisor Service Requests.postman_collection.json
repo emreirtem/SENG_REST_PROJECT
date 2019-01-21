@@ -1,0 +1,322 @@
+{
+	"info": {
+		"_postman_id": "18e83ff8-8c99-4a0a-9d9e-2e362e62da51",
+		"name": "Advisor Service Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "validate advisor exist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5001/advisor/1/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"1",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "is advisor available",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5001/advisor/1/is_available",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"1",
+						"is_available"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get list of all advisors",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5001/advisor/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get advisor with id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5001/advisor/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create New Advisor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "advisor_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "advisor_name",
+							"value": "Onur Demirörs",
+							"type": "text"
+						},
+						{
+							"key": "field_of_interest",
+							"value": "Software",
+							"type": "text"
+						},
+						{
+							"key": "availability",
+							"value": "True",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5001/advisor/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update availability",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5001/advisor/1/update_availability/false",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"1",
+						"update_availability",
+						"false"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send approval request",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5001/advisor/1/approval/request/2?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"1",
+						"approval",
+						"request",
+						"2"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "accept approval",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5001/advisor/1/approval/request/1/accept?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"1",
+						"approval",
+						"request",
+						"1",
+						"accept"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "reject approval",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:5001/advisor/1/approval/request/2/reject?",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"1",
+						"approval",
+						"request",
+						"2",
+						"reject"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get list of all accepted students",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5001/advisor/1/approval/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"1",
+						"approval",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get list of all approval requests of advisor",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5001/advisor/1/approval/requests",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5001",
+					"path": [
+						"advisor",
+						"1",
+						"approval",
+						"requests"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

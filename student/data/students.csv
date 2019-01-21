@@ -1,0 +1,7 @@
+student_id,student_name,advisor_id,approval_status,thesis_topic
+1,Pelin Şenkula,1,ACCEPT_WAITING,
+2,Emre İRTEM,,,
+3,Can Savcı,,,
+4,Seren Seyvan,2,ACCEPT_WAITING,
+10,Test,,null,null
+5,Test,1,ACCEPT_WAITING,null

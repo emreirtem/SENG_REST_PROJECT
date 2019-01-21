@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "b9a67d83-0639-4944-9ff2-56473cdba335",
+		"name": "Student Service Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create New Student",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "student_id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "student_name",
+							"value": "Seren Seyvan",
+							"type": "text"
+						},
+						{
+							"key": "advisor_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "approval_status",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "thesis_topic",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/student/new",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"new"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get List of all student",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/student/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get Student with id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/student/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "validate student exist",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/student/2/validate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"2",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send approval request with student id and advisor id",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/student/1/approval/send/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"1",
+						"approval",
+						"send",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trigger accepted Event of Approval Request",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/student/1/approval/accepted",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"1",
+						"approval",
+						"accepted"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "trigger rejected Event of Approval Request",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/student/1/approval/rejected",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"1",
+						"approval",
+						"rejected"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Thesis Topic",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/student/1/thesis_topic/Fingerprint Recognition",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"student",
+						"1",
+						"thesis_topic",
+						"Fingerprint Recognition"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
