@@ -6,7 +6,7 @@
 <body>
 <div class="container">
 <!-- LOGIN FORM -->
-	<div class="row" id="login">
+	<div class="row" id="login" >
 		<form>
 		  <h1>Login</h1>
 		  <div class="form-group">
@@ -18,22 +18,36 @@
 		  </div>
 		</form>
 	</div>
-<!-- LOGIN FORM -->
+<!-- PROFILE -->
 	<div class="row" id="profile">
 		<form>
 		  <h1>Welcome STUDENT_NAME</h1>
 		  <div class="card" style="width: 18rem;">
 			  <div class="card-body">
 				<h5 class="card-title">Advisor</h5>
-				<p class="card-text" id="advisor_name">ADVISOR_NAME</p>
-				<p class="card-text" id="approval_status">APPROVAL_STATUS</p>
+				<p class="card-text" id="advisor_name">Advisor Name: ADVISOR_NAME</p>
+				<p class="card-text" id="approval_status">Approval Status: APPROVAL_STATUS</p>
 				<p class="card-text" id="thesis_topic">Thesis Topic : APPROVAL_STATUS</p>
-				<a href="#" class="btn btn-primary">Send Approval Request</a>
+				<a href="#" class="btn btn-primary">Choose Advisor</a>
 			  </div>
 			</div>	
 		</form>
 		
 	</div>
+	
+<!-- ADVISOR LIST -->
+<div class="row" id="profile">
+	<div class="dropdown">
+	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		Dropdown button
+	  </button>
+	  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+		<a class="dropdown-item" href="#">Action</a>
+		<a class="dropdown-item" href="#">Another action</a>
+		<a class="dropdown-item" href="#">Something else here</a>
+	  </div>
+	</div>
+</div>
 
 
 </div>
