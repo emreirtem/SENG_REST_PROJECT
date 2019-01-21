@@ -8,6 +8,7 @@ from flask import json
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
+
 cors = CORS(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
 
@@ -51,11 +52,12 @@ def get_advisor(advisor_id:int):
 @app.route('/advisor/new', methods=['POST'])
 def post_advisor():
     try:
+        availability = str(request.form.get('availability', default = None, type = str)).upper()=='TRUE'
         s = Advisor(
             request.form.get('advisor_id', default = None, type = int),
             request.form.get('advisor_name', default = None, type = str),
             request.form.get('field_of_interest', default = None, type = str),
-            request.form.get('availability', default = None, type = bool)
+            availability
         )
         out = AdvisorManager.addAdvisor(s)
         

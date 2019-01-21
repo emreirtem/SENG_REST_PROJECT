@@ -1,5 +1,5 @@
-const REMOTE_STUDENT_SERVICE_URI = 'http://localhost:5000/student/'
-const REMOTE_ADVISOR_SERVICE_URI = 'http://localhost:5001/advisor/'
+const REMOTE_STUDENT_SERVICE_URI = 'http://127.0.0.1:5000/student/'
+const REMOTE_ADVISOR_SERVICE_URI = 'http://127.0.0.1:5001/advisor/'
 var uri_builder = {
   student: {
     getAllStudents:function () {
@@ -44,6 +44,11 @@ var uri_builder = {
 		  return REMOTE_ADVISOR_SERVICE_URI + "new"
 	  },
 	  updateAvailability:function(advisor_id, availability_status){
+		  if(availability_status==true){
+			  availability_status="True"
+		  }else{
+			  availability_status="False"
+		  }
 		  return REMOTE_ADVISOR_SERVICE_URI + advisor_id + "/update_availability/" + availability_status
 	  },
 	  sendApprovalRequest:function(){
@@ -76,9 +81,9 @@ var StudentService={
 		var formData = new FormData();
 		formData.append('student_id', student_id);
 		formData.append('student_name', student_name);
-		formData.append('advisor_id', null);
-		formData.append('approval_status', null);
-		formData.append('thesis_topic', null);
+		formData.append('advisor_id', "");
+		formData.append('approval_status', "");
+		formData.append('thesis_topic', "");
 		
       return fetch(uri_builder.student.createStudent(),{
 		  method: 'POST',
@@ -117,6 +122,85 @@ var StudentService={
 			return response.json();
 		  });
     }
+}
+
+var AdvisorService={
+	validateAdvisorById:function(advisor_id){
+		  return fetch(uri_builder.advisor.validateAdvisorById(advisor_id))
+		  .then(function(response) {
+			return response.json();
+		  });
+	  },
+	  isAdvisorAvailable: function(advisor_id){
+		  return fetch(uri_builder.advisor.isAdvisorAvailable(advisor_id))
+		  .then(function(response) {
+			return response.json();
+		  });
+	  },
+	  getAllAdvisors:function(){
+		  return fetch(uri_builder.advisor.getAllAdvisors())
+		  .then(function(response) {
+			return response.json();
+		  });
+	  },
+	  getAdvisorById: function(advisor_id){
+		  return fetch(uri_builder.advisor.getAdvisorById(advisor_id))
+		  .then(function(response) {
+			return response.json();
+		  });
+	  },
+	  createAdvisor:function(advisor_id, advisor_name, field_of_interest, availability_status){
+		  if(availability_status==true){
+			  availability_status="True"
+		  }else{
+			  availability_status="False"
+		  }
+		  var formData = new FormData();
+			formData.append('advisor_id', advisor_id);
+			formData.append('advisor_name', advisor_name);
+			formData.append('field_of_interest', field_of_interest);
+			formData.append('availability_status', availability_status);
+			
+		  return fetch(uri_builder.advisor.createAdvisor(),{
+			  method: 'POST',
+			  body: formData
+			  }).then(function(response) {
+				  return response.json();
+			  });
+	  },
+	  updateAvailability:function(advisor_id, availability_status){
+		  return fetch(uri_builder.advisor.updateAvailability(advisor_id, availability_status),
+			{method: 'PATCH'}).then(function(response) {
+				return response.json();
+			  });
+	  },
+	  sendApprovalRequest:function(){
+		  alert('sendApprovalRequest: StudentService automatically use this api')
+	  },
+	  acceptApprovalRequest:function(advisor_id, student_id){
+		  return fetch(uri_builder.advisor.acceptApprovalRequest(advisor_id, student_id),
+			{method: 'PATCH'}).then(function(response) {
+				return response.json();
+			  });
+	  },
+	  rejectApprovalRequest:function(advisor_id, student_id){
+		  return fetch(uri_builder.advisor.rejectApprovalRequest(advisor_id, student_id),
+			{method: 'PATCH'}).then(function(response) {
+				return response.json();
+			  });
+	  },
+	  getAcceptedStudentsOfAdvisor:function(advisor_id){
+		  return fetch(uri_builder.advisor.getAcceptedStudentsOfAdvisor(advisor_id))
+		  .then(function(response) {
+				return response.json();
+			  });
+	  },
+	  getApprovalRequestsOfAdvisor:function(advisor_id){
+		  return fetch(uri_builder.advisor.getApprovalRequestsOfAdvisor(advisor_id))
+		  .then(function(response) {
+				return response.json();
+			  });
+	  }
 	
 }
 function service_help(){
@@ -132,16 +216,16 @@ function service_help(){
 	console.log("*****************************")
 	console.log("*** ADVISOR SERVICE LIST ****")
 	console.log("*****************************")
-	console.log(uri_builder.advisor.validateAdvisorById(1))
-	console.log(uri_builder.advisor.isAdvisorAvailable(1))
-	console.log(uri_builder.advisor.getAllAdvisors())
-	console.log(uri_builder.advisor.getAdvisorById(1))
-	console.log(uri_builder.advisor.createAdvisor())
-	console.log(uri_builder.advisor.updateAvailability(1, "false"))
-	console.log(uri_builder.advisor.acceptApprovalRequest(1,2))
-	console.log(uri_builder.advisor.rejectApprovalRequest(1,2))
-	console.log(uri_builder.advisor.getAcceptedStudentsOfAdvisor(1))
-	console.log(uri_builder.advisor.getApprovalRequestsOfAdvisor(1))
+	console.log("AdvisorService.validateAdvisorById(advisor_id).then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.isAdvisorAvailable(advisor_id).then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.getAllAdvisors().then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.createAdvisor(advisor_id, advisor_name, field_of_interest, availability_status).then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.updateAvailability(advisor_id,availability_status).then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.sendApprovalRequest(advisor_id, student_id).then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.acceptApprovalRequest(advisor_id, student_id).then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.rejectApprovalRequest(advisor_id, student_id).then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.getAcceptedStudentsOfAdvisor(advisor_id).then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.getApprovalRequestsOfAdvisor(advisor_id).then(r=>console.log(JSON.stringify(r)))")
 	console.log("------------------------------")
 	console.log("type service_help() to list services")
 }

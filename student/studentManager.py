@@ -13,7 +13,7 @@ class RemoteAdvisorService(object):
         uri = RemoteAdvisorService.REMOTE_ADVISOR_SERVICE_URI+"{}/validate"
         try:
             r = requests.get(uri.format(advisor_id))
-        except ConnectionError as e:
+        except ConnectionError:
             raise AssertionError(RemoteAdvisorService.CONNECTION_ERROR)
         assert r.status_code==200, "status code %d"%r.status_code
         return r.json()["isAdvisorValid"]
@@ -23,7 +23,7 @@ class RemoteAdvisorService(object):
         uri = RemoteAdvisorService.REMOTE_ADVISOR_SERVICE_URI+"{}/is_available"
         try:
             r = requests.get(uri.format(advisor_id))
-        except ConnectionError as e:
+        except ConnectionError:
             raise AssertionError(RemoteAdvisorService.CONNECTION_ERROR)
         assert r.status_code==200, "status code %d"%r.status_code
         return r.json()["isAdvisorValid"]
@@ -33,7 +33,7 @@ class RemoteAdvisorService(object):
         uri = RemoteAdvisorService.REMOTE_ADVISOR_SERVICE_URI+"{}/approval/request/{}"
         try:
             r = requests.post(uri.format(advisor_id, student_id))
-        except ConnectionError as e:
+        except ConnectionError:
             raise AssertionError(RemoteAdvisorService.CONNECTION_ERROR)
         assert r.status_code==200, "status code %d"%r.status_code
         return r.json()
@@ -134,7 +134,7 @@ class StudentManager(object):
     @staticmethod
     def getStudents()-> list:
         return [StudentManager.__to_student_obj__(student).to_dict() for index,student in StudentManager.data_students.iterrows()]
-
+    @staticmethod
     def __to_student_obj__(row) -> Student: 
         student_id = int(row.student_id)
         if row.student_name is np.nan or row.student_name is None :

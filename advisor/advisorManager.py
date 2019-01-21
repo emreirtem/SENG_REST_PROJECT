@@ -13,17 +13,18 @@ class RemoteStudentService(object):
         uri = RemoteStudentService.REMOTE_STUDENT_SERVICE_URI+"{}/validate"
         try:
             r = requests.get(uri.format(student_id))
-        except ConnectionError as e:
+        except ConnectionError:
             raise AssertionError(RemoteStudentService.CONNECTION_ERROR)
 
         assert r.status_code==200, "RemoteStudentService Connection problem. Status Code %d"%r.status_code
         return r.json()["isStudentValid"]
     
+    @staticmethod
     def notify_approval_status_update(student_id:int, status:str)-> bool:
         uri = RemoteStudentService.REMOTE_STUDENT_SERVICE_URI+"{}/approval/{}"
         try:
             r = requests.patch(uri.format(student_id, status.lower()))
-        except ConnectionError as e:
+        except ConnectionError:
             raise AssertionError(RemoteStudentService.CONNECTION_ERROR)
 
         assert r.status_code==200, "RemoteStudentService Connection problem. Status Code %d"%r.status_code
@@ -54,7 +55,7 @@ class AdvisorManager(object):
             return {"isAdvisorValid":True}
         else:
             return {"isAdvisorValid":False}
-    
+    @staticmethod
     def isAdvisorAvailable(advisor_id:int)->dict:
         assert isinstance(advisor_id, int) and advisor_id is not None, "Advisor_id must be int"
         tmp = (AdvisorManager.data_advisors.advisor_id==advisor_id)
@@ -168,7 +169,7 @@ class AdvisorManager(object):
             AdvisorManager.commit()
             return {"success":True,"desc":"approve request updated.", "RemoteStudentService": out}
         return {"success":False, "desc":"No approve request found to be updated."}
-    
+    @staticmethod
     def __to_advisor_obj__(row) -> Advisor: 
         advisor_id = int(row.advisor_id)
         if row.advisor_name is np.nan or row.advisor_name is None :
