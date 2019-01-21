@@ -5,11 +5,11 @@
 </head>
 <body>
 <div class="container">
-<!-- STUDENT FORM -->
+<!-- student form -->
 	<div class="row" id="admin_form">
 		<div class="col-sm">
 			<form>
-			  <h1>Add New Student</h1>
+			  <h4>Add New Student</h4>
 			  <div class="form-group">
 				<label for="student_id">Student Id : </label>
 				<input class="form-control" id="student_id" placeholder="">
@@ -22,11 +22,14 @@
 				<button type="button" class="btn btn-success" id="submit_student">Submit</button>
 			  </div>
 			</form>
+			<div class="list-group" id="student_list">
+				<h4>Student List</h4>
+			</div>
 		</div>
-
+<!-- advisor form -->
 		<div class="col-sm">
 			<form>
-			  <h1>Add New Advisor</h1>
+			  <h4>Add New Advisor</h4>
 			  <div class="form-group">
 				<label for="advisor_id">Advisor Id : </label>
 				<input class="form-control" id="advisor_id" placeholder="">
@@ -47,19 +50,10 @@
 				<button type="button" class="btn btn-success" id="submit_advisor">Submit</button>
 			  </div>
 			</form>
-		</div>
-	</div>
-
-	<div class="row" id="admin_form">
-		<div class="col-sm">
-			  <div class="list-group" id="student_list">
-				<h1>Student List</h1>
-				<button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
+			<div class="list-group" id="advisor_list">
+				<h4>Advisor List</h4>
 			</div>
-		<div>
-		<div class="col-sm">
-			
-		<div>
+		</div>
 	</div>
 
 </div>

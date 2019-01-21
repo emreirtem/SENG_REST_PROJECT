@@ -117,4 +117,4 @@ def get_approval_requests(advisor_id:int):
     return to_json_response(out)
     
 
-app.run(port=5001, debug=True)
+app.run(host="0.0.0.0", port=5001, debug=True)

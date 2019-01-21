@@ -75,4 +75,4 @@ def approval_rejected(student_id:int):
 def update_thesis_topic(student_id:int,thesis_topic:str):
     return to_json_response(StudentManager.updateThesisTopic(student_id, thesis_topic))
     
-app.run(debug=True)
+app.run(host="0.0.0.0", port=5000, debug=True)
