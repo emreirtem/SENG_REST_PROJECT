@@ -6,7 +6,7 @@
 <body>
 <div class="container">
 <!-- LOGIN FORM -->
-	<div class="row" id="login" >
+	<div class="row" id="login_form" >
 		<form>
 		  <h1>Login</h1>
 		  <div class="form-group">
@@ -14,21 +14,21 @@
 			<input class="form-control" id="student_id" placeholder="enter your student Id">
 		  </div>
 		  <div class="form-group">
-			<button type="button" class="btn btn-success">Login</button>
+			<button type="button" class="btn btn-success" id="login">Login</button>
 		  </div>
 		</form>
 	</div>
 <!-- PROFILE -->
 	<div class="row" id="profile">
 		<form>
-		  <h1>Welcome STUDENT_NAME</h1>
+		  <h1>Welcome <label id="student_name">Student Name</label></h1>
 		  <div class="card" style="width: 18rem;">
 			  <div class="card-body">
-				<h5 class="card-title">Advisor</h5>
-				<p class="card-text" id="advisor_name">Advisor Name: ADVISOR_NAME</p>
-				<p class="card-text" id="approval_status">Approval Status: APPROVAL_STATUS</p>
-				<p class="card-text" id="thesis_topic">Thesis Topic : APPROVAL_STATUS</p>
-				<a href="#" class="btn btn-primary">Choose Advisor</a>
+				<h5 class="card-title">Advisor Info</h5>
+				<label for="advisor_name">Advisor Name:</label><p class="card-text" id="advisor_name">Not choosen yet</p>
+				<label for="approval_status">Approval Status:</label><p class="card-text" id="approval_status"> Not choosen yet</p>
+				<label for="thesis_topic">Thesis Topic:</label><p class="card-text" id="thesis_topic"> Not choosen yet</p>
+				<a href="#" class="btn btn-primary" id="choose_advisor">Choose Advisor</a>
 			  </div>
 			</div>	
 		</form>
@@ -37,11 +37,8 @@
 	
 <!-- ADVISOR LIST -->
 <div class="row" id="advisor_list">	
-	<div class="list-group">
+	<div class="list-group" id="advisor_list_group">
 		<h1>Advisors List</h1>
-		<button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>
-		<button type="button" class="list-group-item list-group-item-action">Morbi leo risus</button>
-		<button type="button" class="list-group-item list-group-item-action">Porta ac consectetur ac</button>
 	</div>
 </div>
 
@@ -51,10 +48,10 @@
 <h1>Choose Thesis Topic</h1>
 	<div class="form-group">
 		<label for="exampleFormControlTextarea1">Enter your thesis topic, and send it to your advisor's approval.</label>
-		<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+		<textarea class="form-control" id="thesis_topic" rows="3"></textarea>
 	</div>
 	<div class="form-group">
-			<button type="button" class="btn btn-success">Send To Advisor</button>
+			<button type="button" class="btn btn-success" id="send_topic">Send To Advisor</button>
 	</div>
 </form>
 </div>
@@ -65,5 +62,6 @@
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/remote.api.wapper.js"></script>
+<script src="js/page.student.js"></script>
 </body>
 </html>
