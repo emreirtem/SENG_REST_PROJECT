@@ -38,6 +38,8 @@ var updateProfile=function(advisor_id){
 						})
 			}
 		});
+		t = new Date();
+	    $("#time_info").text("Last Update Time: "+t.getHours()+":"+t.getMinutes()+":"+t.getSeconds());
 		
 }
 $( "#login_form #login" ).click(function() {
@@ -49,13 +51,17 @@ $( "#login_form #login" ).click(function() {
 			.then(function(r){
 				if(r["isAdvisorValid"]){
 					updateProfile($( "#advisor_id" ).val());
+						$( document).focus(function() {
+						  updateProfile($( "#advisor_id" ).val());
+						});
+	
 					manager.active("#profile")
 				}else{
 					alert("Advisor Id is invalid")
 				}
 			});
 	}
-	
+
 });
 
 $(".update_available").click(function(){
