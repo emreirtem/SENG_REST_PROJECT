@@ -47,14 +47,14 @@ $( "#submit_advisor" ).click(function() {
 	advisor_id = $( "#advisor_id" ).val()
 	advisor_name = $( "#advisor_name" ).val()
 	field_of_interest = $( "#field_of_interest" ).val()
-	availability = $( "#availability" ).val()
+	availability = $( "#availability" ).val()=="Available"
 	AdvisorService.createAdvisor(advisor_id, advisor_name, field_of_interest, availability)
 		.then(function(r){
 			if(r["success"]){
 				$( "#advisor_id" ).val("")
 				$( "#advisor_name" ).val("")
 				$( "#field_of_interest" ).val("")
-				$( "#availability" ).val("")
+				//$( "#availability" ).val("")
 				updateAdvisorList();
 				alert("Advisor added.");
 			}else{

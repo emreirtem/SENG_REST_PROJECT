@@ -159,7 +159,7 @@ var AdvisorService={
 			formData.append('advisor_id', advisor_id);
 			formData.append('advisor_name', advisor_name);
 			formData.append('field_of_interest', field_of_interest);
-			formData.append('availability_status', availability_status);
+			formData.append('availability', availability_status);
 			
 		  return fetch(uri_builder.advisor.createAdvisor(),{
 			  method: 'POST',

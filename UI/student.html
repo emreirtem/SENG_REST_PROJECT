@@ -8,7 +8,7 @@
 <!-- LOGIN FORM -->
 	<div class="row" id="login_form" >
 		<form>
-		  <h1>Login</h1>
+		  <h4>Student Login</h4>
 		  <div class="form-group">
 			<label for="exampleFormControlInput1">User Name : </label>
 			<input class="form-control" id="student_id" placeholder="enter your student Id">
@@ -21,7 +21,8 @@
 <!-- PROFILE -->
 	<div class="row" id="profile">
 		<form>
-		  <h1>Welcome <label id="student_name">Student Name</label></h1>
+		  <h4>Welcome <label id="student_name">Student Name</label></h4>
+		  <a href="#" class="btn btn-primary" id="refresh_profile">Refresh</a>
 		  <div class="card" style="width: 18rem;">
 			  <div class="card-body">
 				<h5 class="card-title">Advisor Info</h5>
@@ -39,20 +40,20 @@
 <!-- ADVISOR LIST -->
 <div class="row" id="advisor_list">	
 	<div class="list-group" id="advisor_list_group">
-		<h1>Advisors List</h1>
+		<h4>Advisors List</h4>
 	</div>
 </div>
 
 <!-- CHOOSE TOPIC -->
 <div class="row" id="choose_topic">	
 <form>
-<h1>Choose Thesis Topic</h1>
+<h4>Choose Thesis Topic</h4>
 	<div class="form-group">
 		<label for="thesis_topic_area">Enter your thesis topic, and send it to your advisor's approval.</label>
 		<textarea class="form-control" id="thesis_topic_area" rows="3"></textarea>
 	</div>
 	<div class="form-group">
-			<button type="button" class="btn btn-success" id="send_topic">Send To Advisor</button>
+			<button type="button" class="btn btn-success" id="send_topic">Update Thesis Topic</button>
 	</div>
 </form>
 </div>

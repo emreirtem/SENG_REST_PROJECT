@@ -42,15 +42,20 @@ var updateProfile=function(advisor_id){
 }
 $( "#login_form #login" ).click(function() {
 	advisor_id = $( "#advisor_id" ).val()
-	AdvisorService.validateAdvisorById(advisor_id)
-		.then(function(r){
-			if(r["isAdvisorValid"]){
-				updateProfile($( "#advisor_id" ).val());
-				manager.active("#profile")
-			}else{
-				alert("Advisor Id is invalid")
-			}
-		});
+	if (!validation.isNumber(advisor_id)){
+		alert('Advisor id must be a number.')
+	}else{
+		AdvisorService.validateAdvisorById(advisor_id)
+			.then(function(r){
+				if(r["isAdvisorValid"]){
+					updateProfile($( "#advisor_id" ).val());
+					manager.active("#profile")
+				}else{
+					alert("Advisor Id is invalid")
+				}
+			});
+	}
+	
 });
 
 $(".update_available").click(function(){

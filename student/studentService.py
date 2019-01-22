@@ -68,7 +68,6 @@ def approval_accepted(student_id:int):
 
 @app.route('/student/<int:student_id>/approval/rejected', methods=['PATCH'])
 def approval_rejected(student_id:int):
-    StudentManager.updateAdvisorId(student_id,None)
     return to_json_response(StudentManager.updateApprovalStatus(student_id, StudentManager.CONST_REJECTED))
 
 @app.route('/student/<int:student_id>/thesis_topic/<string:thesis_topic>', methods=['PATCH'])
