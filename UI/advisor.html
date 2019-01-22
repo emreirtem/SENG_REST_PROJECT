@@ -5,35 +5,34 @@
 </head>
 <body>
 <div class="container">
-<!-- LOGIN FORM -->
-	<div class="row" id="login">
+<<!-- LOGIN FORM -->
+	<div class="row" id="login_form" >
 		<form>
-		  <h4>Login</h4>
+		  <h1>Login</h1>
 		  <div class="form-group">
 			<label for="exampleFormControlInput1">User Name : </label>
-			<input class="form-control" id="student_id" placeholder="enter your advisor id">
+			<input class="form-control" id="advisor_id" placeholder="enter your Advisor Id">
 		  </div>
 		  <div class="form-group">
-			<button type="button" class="btn btn-success">Login</button>
+			<button type="button" class="btn btn-success" id="login">Login</button>
 		  </div>
 		</form>
 	</div>
 <!-- LOGIN FORM -->
 	<div class="row" id="profile">
 		<form>
-		  <h4>Welcome ADVISOR_NAME</h4>
+		  <h4>Welcome <label id="advisor_name">ADVISOR_NAME</label></h4>
 		  <div class="card float-left" style="width: 18rem;">
 			  <div class="card-body">
 				<h5 class="card-title">Advisor</h5>
-				<p class="card-text" id="advisor_name">ADVISOR_ID - ADVISOR_NAME</p>
-				<p class="card-text" id="availability"> 
-					<button type="button" class="btn btn-success btn-sm">✔</button>
-					<button type="button" class="btn btn-danger btn-sm">✖</button>
-					AVAILABLE
+				<p class="card-text">ID:<label id="advisor_id">ADVISOR_ID</label></p>
+				<p class="card-text">
+					<label id="field_of_interest">FIELD_OF_INTEREST</label>
 				</p>
-				<p class="card-text" id="field_of_interest">
-					<button type="button" class="btn btn-primary btn-sm">edit</button>
-					FIELD OF INTEREST
+				<p class="card-text"> 
+					<button type="button" class="btn btn-success btn-sm update_available" data-value="true">✔</button>
+					<button type="button" class="btn btn-danger btn-sm update_available" data-value="false">✖</button>
+					<label id="advisor_availability">AVAILABILITY</label>
 				</p>
 			  </div>
 			</div>	
@@ -76,5 +75,6 @@
 <script src="js/jquery-3.3.1.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/remote.api.wapper.js"></script>
+<script src="js/page.advisor.js"></script>
 </body>
 </html>

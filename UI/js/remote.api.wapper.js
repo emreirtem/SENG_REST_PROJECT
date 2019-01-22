@@ -44,7 +44,7 @@ var uri_builder = {
 		  return REMOTE_ADVISOR_SERVICE_URI + "new"
 	  },
 	  updateAvailability:function(advisor_id, availability_status){
-		  if(availability_status==true){
+		  if(availability_status.toString().toUpperCase()=="TRUE"){
 			  availability_status="True"
 		  }else{
 			  availability_status="False"
@@ -217,6 +217,7 @@ function service_help(){
 	console.log("*** ADVISOR SERVICE LIST ****")
 	console.log("*****************************")
 	console.log("AdvisorService.validateAdvisorById(advisor_id).then(r=>console.log(JSON.stringify(r)))")
+	console.log("AdvisorService.getAdvisorById(advisor_id).then(r=>console.log(JSON.stringify(r)))")
 	console.log("AdvisorService.isAdvisorAvailable(advisor_id).then(r=>console.log(JSON.stringify(r)))")
 	console.log("AdvisorService.getAllAdvisors().then(r=>console.log(JSON.stringify(r)))")
 	console.log("AdvisorService.createAdvisor(advisor_id, advisor_name, field_of_interest, availability_status).then(r=>console.log(JSON.stringify(r)))")

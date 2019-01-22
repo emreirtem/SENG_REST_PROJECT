@@ -1,6 +1,6 @@
 advisor_id,advisor_name,field_of_interest,availability
-1,Onur Demirörs,Software,False
-2,Murat Erten,Network,True
+1,Onur Demirörs,Software,True
+2,Murat Erten,Network,False
 11,TEST advisoru,testing,False
 3,Yalın Hoca,image process,False
 5,5,,False
