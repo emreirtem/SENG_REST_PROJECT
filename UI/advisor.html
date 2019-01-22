@@ -8,7 +8,7 @@
 <!-- LOGIN FORM -->
 	<div class="row" id="login_form" >
 		<form>
-		  <h4>Login</h4>
+		  <h4>Advisor Login</h4>
 		  <div class="form-group">
 			<label for="exampleFormControlInput1">User Name : </label>
 			<input class="form-control" id="advisor_id" placeholder="enter your Advisor Id">
@@ -48,12 +48,22 @@
 			</form>
 		</div>
 		<div class="col-sm">
+			
 			<form>
 			  <h4>Accepted Students</h4>
 			   <div class="list-group" id="accepted_students">
 					<button type="button" class="list-group-item list-group-item-action">Student 1</button>
 				</div> 	
 			</form>
+			<div class="card" style="width: 18rem;" id="student_card">
+			  <div class="card-body">
+				<h5 class="card-title">
+					<label id="adv_student_id">ID </label> - 
+					<label id="adv_student_name">STUDENT NAME </label>
+				</h5>
+				<h6 class="card-subtitle mb-2 text-muted" id="adv_topic">THESIS TOPIC</h6>
+			  </div>
+			</div>
 		</div>
 	</div>
 

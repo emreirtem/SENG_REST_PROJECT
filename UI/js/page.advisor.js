@@ -1,4 +1,5 @@
 var updateProfile=function(advisor_id){
+	$("#student_card").hide()
 	AdvisorService.getAdvisorById(advisor_id)
 		.then(function(r){
 			$("#profile #advisor_name").text(r["advisor_name"]);
@@ -86,6 +87,16 @@ $(document).on("click",".request_reject", function(){
 		})
 });
 
+$(document).on("click",".accepted_student", function(){
+	student_id = $(this).attr("data-id");
+	StudentService.getStudentById(student_id)
+		.then(function(r){
+			$("#adv_student_id").text(r["student_id"])
+			$("#adv_student_name").text(r["student_name"])
+			$("#adv_topic").text(r["thesis_topic"])
+			$("#student_card").show()
+		})
+});
 manager = new DisplayManager(["#profile", "#login_form"])
 
 $(document).ready(function(){
