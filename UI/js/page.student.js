@@ -20,7 +20,8 @@ $( "#login" ).click(function() {
 	} else {
 		StudentService.validateStudentById(student_id)
 		.then(function(r){
-				if(r["isStudentValid"]){		
+				if(r["isStudentValid"]){	
+					manager.active("#profile")				
 					student_id = $( "#student_id" ).val()
 					StudentService.getStudentById(student_id)
 					.then(
@@ -33,29 +34,32 @@ $( "#login" ).click(function() {
 								r["approval_status"] = "WAITING FOR ACCEPTANCE"
 								r["thesis_topic"] = "You can decide the topic after advisor approval"
 								$( "#choose_advisor" ).hide()
-								$( "#choose_topic" ).hide()
+								$( "#choose_topic_btn" ).hide()
 							} else if (r["approval_status"] == "ACCEPTED"){
 								// if approval accepted, no advisor button only topic button
 								AdvisorService.getAdvisorById(r["advisor_id"]).then(r=>$( "#advisor_name" ).text(r["advisor_name"]))
 								if (r["thesis_topic"] == null) {
 									r["thesis_topic"] = "Not Determined Yet"
+									$( "#choose_topic_btn" ).show()
+								} else {
+									$( "#choose_topic_btn" ).hide()
 								}
 								$( "#choose_advisor" ).hide();
-								$( "#choose_topic" ).show()								
+																
 								
 							} else if (r["approval_status"] == "REJECTED"){
 								// if approval rejected, only advisor button
 								AdvisorService.getAdvisorById(r["advisor_id"]).then(r=>$( "#advisor_name" ).text(r["advisor_name"]))
 								r["thesis_topic"] = "You can decide the topic after advisor approval"
 								$( "#choose_advisor" ).show();
-								$( "#choose_topic" ).hide()
+								$( "#choose_topic_btn" ).hide()
 							} else {
 								// if none of above, only advisor button, student didnt choose anything yet
 								$( "#advisor_name" ).text("Advisor is not determined yet.")
 								r["approval_status"] = " - "
 								r["thesis_topic"] = "Please determine an advisor first."
 								$( "#choose_advisor" ).show();
-								$( "#choose_topic" ).hide()
+								$( "#choose_topic_btn" ).hide()
 							}		
 							
 							$( "#approval_status" ).text(r["approval_status"])							
@@ -72,6 +76,7 @@ $( "#login" ).click(function() {
 
 
 $( "#choose_advisor" ).click(function() {
+	manager.active("#advisor_list")
 	AdvisorService.getAllAdvisors()
 	.then(function(r){
 				$("#advisor_list_group").html('<h1>Advisors List</h1>')
@@ -111,12 +116,23 @@ $(document).on('click', '.choose-advisor', function(){
 });
 
 
-$( "#send_topic" ).click(function() {
-	thesis_topic_area = $( "#thesis_topic_area" ).val()
-	alert(thesis_topic_area)
+$( "#choose_topic_btn" ).click(function() {
+	manager.active("#choose_topic")
 });
 
 
+$( "#send_topic" ).click(function() {
+	student_id = $( "#student_id" ).val()
+	thesis_topic_area = $( "#thesis_topic_area" ).val()
+	StudentService.updateThesisTopic(student_id, thesis_topic_area).then(r=>console.log(JSON.stringify(r)))
+});
 
+
+manager = new DisplayManager(["#login_form", "#profile", "#advisor_list","#choose_topic"])
+
+$(document).ready(function(){
+	manager.active("#login_form")
+	
+});
 
 
