@@ -25,10 +25,11 @@
 		  <div class="card" style="width: 18rem;">
 			  <div class="card-body">
 				<h5 class="card-title">Advisor Info</h5>
-				<label for="advisor_name">Advisor Name:</label><p class="card-text" id="advisor_name">Not choosen yet</p>
-				<label for="approval_status">Approval Status:</label><p class="card-text" id="approval_status"> Not choosen yet</p>
-				<label for="thesis_topic">Thesis Topic:</label><p class="card-text" id="thesis_topic"> Not choosen yet</p>
+				<label for="advisor_name">Advisor Name:</label><p class="card-text" id="advisor_name"></p>
+				<label for="approval_status">Approval Status:</label><p class="card-text" id="approval_status"></p>
+				<label for="thesis_topic">Thesis Topic:</label><p class="card-text" id="thesis_topic"></p>
 				<a href="#" class="btn btn-primary" id="choose_advisor">Choose Advisor</a>
+				<a href="#" class="btn btn-primary" id="choose_topic">Choose Topic</a>
 			  </div>
 			</div>	
 		</form>
@@ -47,8 +48,8 @@
 <form>
 <h1>Choose Thesis Topic</h1>
 	<div class="form-group">
-		<label for="exampleFormControlTextarea1">Enter your thesis topic, and send it to your advisor's approval.</label>
-		<textarea class="form-control" id="thesis_topic" rows="3"></textarea>
+		<label for="thesis_topic_area">Enter your thesis topic, and send it to your advisor's approval.</label>
+		<textarea class="form-control" id="thesis_topic_area" rows="3"></textarea>
 	</div>
 	<div class="form-group">
 			<button type="button" class="btn btn-success" id="send_topic">Send To Advisor</button>
