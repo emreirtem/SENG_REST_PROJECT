@@ -115,4 +115,7 @@ $(document).ready(function(){
 	
 });
 
+$("#time_info").click(function(){
+	updateProfile($( "#advisor_id" ).val());
+})
 

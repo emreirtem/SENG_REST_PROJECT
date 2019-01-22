@@ -22,7 +22,6 @@
 	<div class="row" id="profile">
 		<form>
 		  <h4>Welcome <label id="student_name">Student Name</label></h4>
-		  <a href="#" class="btn btn-primary" id="refresh_profile">Refresh</a>
 		  <div class="card" style="width: 18rem;">
 			  <div class="card-body">
 				<h5 class="card-title">Advisor Info</h5>
@@ -34,19 +33,27 @@
 			  </div>
 			</div>	
 		</form>
-		
+		<div class="w-100">
+			<label id="time_info"></label>
+		</div>
 	</div>
 	
 <!-- ADVISOR LIST -->
 <div class="row" id="advisor_list">	
-	<div class="list-group" id="advisor_list_group">
+	
+	<div class="list-group w-100" id="advisor_list_group">
 		<h4>Advisors List</h4>
+	</div>
+	<div class="clearfix"></div>
+	<div class=" w-100">
+		<a href="#" class="btn btn-primary back_to_profile" >Back</a>
 	</div>
 </div>
 
 <!-- CHOOSE TOPIC -->
 <div class="row" id="choose_topic">	
 <form>
+<a href="#" class="btn btn-primary back_to_profile">Back</a>
 <h4>Choose Thesis Topic</h4>
 	<div class="form-group">
 		<label for="thesis_topic_area">Enter your thesis topic, and send it to your advisor's approval.</label>

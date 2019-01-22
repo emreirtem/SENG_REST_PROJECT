@@ -39,7 +39,9 @@ var updateProfile= function(student_id) {
 			$( "#approval_status" ).text(r["approval_status"])							
 			$( "#thesis_topic" ).text(r["thesis_topic"])							
 		}
-	)						
+	)
+	t = new Date();
+	$("#time_info").text("Last Update Time: "+t.getHours()+":"+t.getMinutes()+":"+t.getSeconds());	
 }
 
 var updateAdvisorList = function(){
@@ -73,7 +75,13 @@ $( "#login" ).click(function() {
 				if(r["isStudentValid"]){	
 					manager.active("#profile")				
 					student_id = $( "#student_id" ).val()
-					updateProfile(student_id)										
+					updateProfile(student_id)
+					$( document).focus(function() {
+						  updateProfile($("#student_id" ).val());
+					});
+					$("#time_info").click(function(){
+						updateProfile($( "#student_id" ).val());
+					})
 				}else{
 					alert("Invalid user.");
 				}
@@ -81,10 +89,14 @@ $( "#login" ).click(function() {
 	}
 });
 
-$("#refresh_profile").click(function(){
+
+
+$(".back_to_profile").click(function(){
+	manager.active("#profile")
 	student_id = $( "#student_id" ).val()
 	updateProfile(student_id);	
 });
+
 
 
 $( "#choose_advisor" ).click(function() {
@@ -102,6 +114,7 @@ $(document).on('click', '.choose-advisor', function(){
 			if (r["success"]) {
 				alert(" choose advisor success")				
 				manager.active("#profile")
+				updateProfile(student_id)
 			} else {
 				if (!r.hasOwnProperty("remoteAdvisorService")) {
 					alert(r["desc"])
@@ -121,8 +134,16 @@ $( "#choose_topic_btn" ).click(function() {
 $( "#send_topic" ).click(function() {
 	student_id = $( "#student_id" ).val()
 	thesis_topic_area = $( "#thesis_topic_area" ).val()
-	StudentService.updateThesisTopic(student_id, thesis_topic_area).then(r=>console.log(JSON.stringify(r)))
-	alert("Thesis topic updated.")
+	StudentService.updateThesisTopic(student_id, thesis_topic_area).then(function(r){
+		if (r["success"]) {
+			alert("Thesis topic updated.")
+			manager.active("#profile")
+			updateProfile(student_id)
+		} else {
+			alert(r["desc"])			
+		}				
+	})
+	
 });
 
 
